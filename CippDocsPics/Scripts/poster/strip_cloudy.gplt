@@ -1,0 +1,19 @@
+# Graph RB image data
+set xdata time
+set timefmt "%Y%m%d%H%M%S"
+set format x "%m/%d"
+#set title "One day"
+unset title
+set datafile separator ","
+set term png size 3068,264 transparent
+unset label
+unset key
+unset border
+unset xtics
+unset ytics
+set y2range [-0.5:0.5]
+set yrange [0:80000]
+set output "strip_pv_plus_color.png"
+set xrange ["20140127080000" : "20140127180000" ]
+plot "../red/BlueRedFresh_merge4.csv" using 1:10 with lines lw 2 axes x1y2, \
+    "../red/BlueRedFresh_merge4.csv" using 1:6 with lines lw 2 linecolor rgb "green"

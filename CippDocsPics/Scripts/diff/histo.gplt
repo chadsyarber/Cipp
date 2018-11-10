@@ -1,0 +1,13 @@
+# Graph cloud pixel data
+# Web page with really fancy histograms via gnuplot: http://gnuplot.sourceforge.net/demo/histograms.html
+# General tutorial on gnplot: http://people.duke.edu/~hpgavin/gnuplot.html
+set title "Histogram"  # change this as needed
+unset multiplot
+set term png size 512,250  # Change this as needed
+set xlabel "Pixel Value"
+set ylabel "Freq"
+set autoscale y  # omit this to force a fixed Y scale, per below
+set output "histo.png"  # whatever you want, ending in PNG.  Pretty sure it does JPEG, too.
+#set xrange ["20131220" : "20140107" ]
+set yrange [0 : 12000 ]
+plot "br8gawk.hist" using 1:2 with lines

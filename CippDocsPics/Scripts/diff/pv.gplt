@@ -1,0 +1,14 @@
+# Graph PV data
+set xdata time
+set timefmt "%Y%m%d%H%M%S"
+set format x "%m/%d"
+set title "PV output"
+unset multiplot
+set term png size 1024,250
+set xlabel "Time"
+set ylabel "KWh"
+set autoscale y
+set output "pv.png"
+#set xrange ["20131220" : "20140107" ]
+set xrange ["20140106" : "20140107" ]
+plot "2014_pv_data.txt" using 1:2 with lines

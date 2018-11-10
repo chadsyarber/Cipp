@@ -1,0 +1,18 @@
+# Graph cloud pixel data from images vs. sensors
+# Web page with really fancy histograms via gnuplot: http://gnuplot.sourceforge.net/demo/histograms.html
+# General tutorial on gnplot: http://people.duke.edu/~hpgavin/gnuplot.html
+set title "Sky Color and PV Generation (sensor data)"  # change this as needed
+unset multiplot
+set datafile separator ","
+set term png size 1024,1024  # Change this as needed
+set xlabel "sensor (r-b)/r"
+#set xlabel "image (r-b)/r"
+set ylabel "Hour"
+set zlabel "KWH"
+set autoscale y  # omit this to force a fixed Y scale, per below
+set output "sensor_vs_pv_3d2.png"  # whatever you want, ending in PNG.  Pretty sure it does JPEG, too.
+#set xrange ["20131220" : "20140107" ]
+#set yrange [0 : 12000 ]
+#plot "chad_cloud_merge2.csv" using 5:6 with points
+#splot "BlueRedFresh_merge4.csv" using 10:6:11 with points notitle
+splot "BlueRedFresh_merge4.csv" using 2:11:6 with points notitle
